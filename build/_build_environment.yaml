@@ -53,6 +53,41 @@ built_resources:
     kind: Space
     destination: build/data_models/2.oee_timeseries.space.yaml
   functions: []
+  transformations:
+  - identifier:
+      externalId: contextualize_ts_assets
+    source:
+      path: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/transformations/contextualize_ts_assets.schedule.yaml
+      hash: 28db892b
+    kind: Schedule
+    destination: build/transformations/1.contextualize_ts_assets.schedule.yaml
+  - identifier:
+      externalId: contextualize_ts_assets
+    source:
+      path: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/transformations/contextualize_ts_assets.yaml
+      hash: c7e865df
+    kind: Transformation
+    destination: build/transformations/2.contextualize_ts_assets.Transformation.yaml
+    extra_sources:
+    - path: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/transformations/contextualize_ts_assets.sql
+      hash: 5bc0c92b
+  - identifier:
+      externalId: create_asset_hierarchy
+    source:
+      path: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/transformations/create_asset_hierarchy.schedule.yaml
+      hash: fb9cc1b7
+    kind: Schedule
+    destination: build/transformations/4.create_asset_hierarchy.schedule.yaml
+  - identifier:
+      externalId: create_asset_hierarchy
+    source:
+      path: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/transformations/create_asset_hierarchy.yaml
+      hash: 2d8badda
+    kind: Transformation
+    destination: build/transformations/5.create_asset_hierarchy.Transformation.yaml
+    extra_sources:
+    - path: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/transformations/create_asset_hierarchy.sql
+      hash: 144ab598
   data_sets:
   - identifier:
       externalId: ds_icapi
@@ -68,6 +103,63 @@ built_resources:
       hash: 699864f7
     kind: DataSet
     destination: build/data_sets/2.data_sets.DataSet.yaml
+  hosted_extractors:
+  - identifier:
+      externalId: assets-rest-destination
+    source:
+      path: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/hosted_extractors/hosted_extractor_assets/assets.Destination.yaml
+      hash: 12f5ed83
+    kind: Destination
+    destination: build/hosted_extractors/1.assets.Destination.yaml
+  - identifier:
+      externalId: assets-rest-job
+    source:
+      path: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/hosted_extractors/hosted_extractor_assets/assets.Job.yaml
+      hash: e2ebb4bf
+    kind: Job
+    destination: build/hosted_extractors/2.assets.Job.yaml
+  - identifier:
+      externalId: assets-rest-mapping
+    source:
+      path: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/hosted_extractors/hosted_extractor_assets/assets.Mapping.yaml
+      hash: c31af488
+    kind: Mapping
+    destination: build/hosted_extractors/3.assets.Mapping.yaml
+  - identifier:
+      externalId: extractor-assets-source
+    source:
+      path: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/hosted_extractors/hosted_extractor_assets/assets.Source.yaml
+      hash: 56c0476f
+    kind: Source
+    destination: build/hosted_extractors/4.assets.Source.yaml
+  - identifier:
+      externalId: timeseries-rest-destination
+    source:
+      path: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/hosted_extractors/hosted_extractor_timeseries/timeseries.Destination.yaml
+      hash: 3d216398
+    kind: Destination
+    destination: build/hosted_extractors/5.timeseries.Destination.yaml
+  - identifier:
+      externalId: timeseries-rest-job
+    source:
+      path: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/hosted_extractors/hosted_extractor_timeseries/timeseries.Job.yaml
+      hash: 96ac3df6
+    kind: Job
+    destination: build/hosted_extractors/6.timeseries.Job.yaml
+  - identifier:
+      externalId: timeseries-rest-mapping
+    source:
+      path: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/hosted_extractors/hosted_extractor_timeseries/timeseries.Mapping.yaml
+      hash: f1982f9a
+    kind: Mapping
+    destination: build/hosted_extractors/7.timeseries.Mapping.yaml
+  - identifier:
+      externalId: extractor-timeseries-source
+    source:
+      path: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/hosted_extractors/hosted_extractor_timeseries/timeseries.Source.yaml
+      hash: 4ff06f0d
+    kind: Source
+    destination: build/hosted_extractors/8.timeseries.Source.yaml
   raw:
   - identifier:
       dbName: ice-cream-factory-db
@@ -90,14 +182,16 @@ read_modules:
   - auth
 - dir: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api
   resource_directories:
-  - data_sets
   - data_models
-  - raw
+  - transformations
   - auth
+  - hosted_extractors
+  - raw
+  - data_sets
   - functions
 - dir: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee
   resource_directories:
-  - data_sets
-  - data_models
   - functions
   - auth
+  - data_models
+  - data_sets
