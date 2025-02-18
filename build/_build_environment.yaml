@@ -134,7 +134,7 @@ built_resources:
       externalId: contextualize_ts_assets
     source:
       path: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api/transformations/contextualize_ts_assets.yaml
-      hash: c7e865df
+      hash: 6ea8866c
     kind: Transformation
     destination: build/transformations/2.contextualize_ts_assets.Transformation.yaml
     extra_sources:
@@ -251,15 +251,15 @@ read_modules:
   - auth
 - dir: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/ice_cream_api
   resource_directories:
-  - functions
+  - data_sets
   - hosted_extractors
   - transformations
-  - extraction_pipelines
-  - data_sets
   - workflows
-  - data_models
-  - raw
+  - functions
   - auth
+  - raw
+  - extraction_pipelines
+  - data_models
 - dir: /home/user/ice-cream-dataops/ice-cream-dataops/modules/bootcamp/use_cases/oee
   resource_directories:
   - data_sets
